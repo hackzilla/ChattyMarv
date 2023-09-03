@@ -1,0 +1,407 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D007BD842AB5BC6E0005DA78 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D007BD832AB5BC6E0005DA78 /* ConsoleView.swift */; };
+		D007BD862AB61B650005DA78 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D007BD852AB61B650005DA78 /* Recorder.swift */; };
+		D06C401F2AA47A8600FCD274 /* MarvToyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C401E2AA47A8600FCD274 /* MarvToyApp.swift */; };
+		D06C40232AA47A8700FCD274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D06C40222AA47A8700FCD274 /* Assets.xcassets */; };
+		D06C40272AA47A8700FCD274 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D06C40262AA47A8700FCD274 /* Preview Assets.xcassets */; };
+		D0DC7D722AA49496003DEFB8 /* iOSContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C40322AA487F900FCD274 /* iOSContentView.swift */; };
+		D0DC7D752AA495F7003DEFB8 /* MacOSContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C40202AA47A8600FCD274 /* MacOSContentView.swift */; };
+		D0DC7D772AA4C2A4003DEFB8 /* OpenAIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC7D762AA4C2A4003DEFB8 /* OpenAIRequest.swift */; };
+		D0DC7D792AA4C5FF003DEFB8 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC7D782AA4C5FF003DEFB8 /* SpeechManager.swift */; };
+		D0DC7D7B2AA4F352003DEFB8 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC7D7A2AA4F352003DEFB8 /* RecordButton.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D007BD832AB5BC6E0005DA78 /* ConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleView.swift; sourceTree = "<group>"; };
+		D007BD852AB61B650005DA78 /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
+		D007BD8C2AB705670005DA78 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		D06C401B2AA47A8600FCD274 /* MarvToy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvToy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D06C401E2AA47A8600FCD274 /* MarvToyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvToyApp.swift; sourceTree = "<group>"; };
+		D06C40202AA47A8600FCD274 /* MacOSContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSContentView.swift; sourceTree = "<group>"; };
+		D06C40222AA47A8700FCD274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D06C40242AA47A8700FCD274 /* MarvToy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MarvToy.entitlements; sourceTree = "<group>"; };
+		D06C40262AA47A8700FCD274 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D06C402D2AA47BD200FCD274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D06C40322AA487F900FCD274 /* iOSContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSContentView.swift; sourceTree = "<group>"; };
+		D0DC7D762AA4C2A4003DEFB8 /* OpenAIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRequest.swift; sourceTree = "<group>"; };
+		D0DC7D782AA4C5FF003DEFB8 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
+		D0DC7D7A2AA4F352003DEFB8 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D06C40182AA47A8600FCD274 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D06C40122AA47A8600FCD274 = {
+			isa = PBXGroup;
+			children = (
+				D06C401D2AA47A8600FCD274 /* MarvToy */,
+				D06C401C2AA47A8600FCD274 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D06C401C2AA47A8600FCD274 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D06C401B2AA47A8600FCD274 /* MarvToy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D06C401D2AA47A8600FCD274 /* MarvToy */ = {
+			isa = PBXGroup;
+			children = (
+				D06C402D2AA47BD200FCD274 /* Info.plist */,
+				D007BD8C2AB705670005DA78 /* Secrets.xcconfig */,
+				D06C401E2AA47A8600FCD274 /* MarvToyApp.swift */,
+				D0DC7D762AA4C2A4003DEFB8 /* OpenAIRequest.swift */,
+				D0DC7D782AA4C5FF003DEFB8 /* SpeechManager.swift */,
+				D0DC7D7A2AA4F352003DEFB8 /* RecordButton.swift */,
+				D007BD832AB5BC6E0005DA78 /* ConsoleView.swift */,
+				D007BD852AB61B650005DA78 /* Recorder.swift */,
+				D06C40312AA4879A00FCD274 /* macOS */,
+				D06C40302AA4878C00FCD274 /* iOS */,
+				D06C40222AA47A8700FCD274 /* Assets.xcassets */,
+				D06C40242AA47A8700FCD274 /* MarvToy.entitlements */,
+				D06C40252AA47A8700FCD274 /* Preview Content */,
+			);
+			path = MarvToy;
+			sourceTree = "<group>";
+		};
+		D06C40252AA47A8700FCD274 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D06C40262AA47A8700FCD274 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D06C40302AA4878C00FCD274 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D06C40322AA487F900FCD274 /* iOSContentView.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		D06C40312AA4879A00FCD274 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				D06C40202AA47A8600FCD274 /* MacOSContentView.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D06C401A2AA47A8600FCD274 /* MarvToy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D06C402A2AA47A8700FCD274 /* Build configuration list for PBXNativeTarget "MarvToy" */;
+			buildPhases = (
+				D06C40172AA47A8600FCD274 /* Sources */,
+				D06C40182AA47A8600FCD274 /* Frameworks */,
+				D06C40192AA47A8600FCD274 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarvToy;
+			productName = MarvToy;
+			productReference = D06C401B2AA47A8600FCD274 /* MarvToy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D06C40132AA47A8600FCD274 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					D06C401A2AA47A8600FCD274 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = D06C40162AA47A8600FCD274 /* Build configuration list for PBXProject "MarvToy" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D06C40122AA47A8600FCD274;
+			productRefGroup = D06C401C2AA47A8600FCD274 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D06C401A2AA47A8600FCD274 /* MarvToy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D06C40192AA47A8600FCD274 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D06C40272AA47A8700FCD274 /* Preview Assets.xcassets in Resources */,
+				D06C40232AA47A8700FCD274 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D06C40172AA47A8600FCD274 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0DC7D752AA495F7003DEFB8 /* MacOSContentView.swift in Sources */,
+				D0DC7D7B2AA4F352003DEFB8 /* RecordButton.swift in Sources */,
+				D0DC7D792AA4C5FF003DEFB8 /* SpeechManager.swift in Sources */,
+				D0DC7D722AA49496003DEFB8 /* iOSContentView.swift in Sources */,
+				D007BD842AB5BC6E0005DA78 /* ConsoleView.swift in Sources */,
+				D06C401F2AA47A8600FCD274 /* MarvToyApp.swift in Sources */,
+				D0DC7D772AA4C2A4003DEFB8 /* OpenAIRequest.swift in Sources */,
+				D007BD862AB61B650005DA78 /* Recorder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D06C40282AA47A8700FCD274 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D06C40292AA47A8700FCD274 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D06C402B2AA47A8700FCD274 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MarvToy/MarvToy.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MarvToy/Preview Content\"";
+				DEVELOPMENT_TEAM = P5NAFER8Z3;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MarvToy/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ofdan.MarvToy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D06C402C2AA47A8700FCD274 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MarvToy/MarvToy.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MarvToy/Preview Content\"";
+				DEVELOPMENT_TEAM = P5NAFER8Z3;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MarvToy/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ofdan.MarvToy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D06C40162AA47A8600FCD274 /* Build configuration list for PBXProject "MarvToy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D06C40282AA47A8700FCD274 /* Debug */,
+				D06C40292AA47A8700FCD274 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D06C402A2AA47A8700FCD274 /* Build configuration list for PBXNativeTarget "MarvToy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D06C402B2AA47A8700FCD274 /* Debug */,
+				D06C402C2AA47A8700FCD274 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D06C40132AA47A8600FCD274 /* Project object */;
+}

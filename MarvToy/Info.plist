@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>NSBluetoothAlwaysUsageDescription</key>
+        <string>We need Bluetooth access to connect to the device.</string>
+        <key>NSBluetoothPeripheralUsageDescription</key>
+        <string>We need Bluetooth access to connect to the device.</string>
+        <key>NSMicrophoneUsageDescription</key>
+        <string>We need access to your microphone to transcribe your speech</string>
+        <key>NSSpeechRecognitionUsageDescription</key>
+        <string>We need access to speech recognition to convert your speech to text</string>
+        
+    </dict>
+</plist>
