@@ -14,7 +14,7 @@ class OpenAIRequest: ObservableObject {
             Please keep all your message succinct, as they will be read out.
             """
          ],
-     ]
+    ]
     
     var onResponseReceived: ((String) -> Void)?
 
@@ -22,7 +22,7 @@ class OpenAIRequest: ObservableObject {
     let apiUrl = "https://api.openai.com/v1/chat/completions"
 
     init() {
-        apiKey = Bundle.main.object(forInfoDictionaryKey: "API_SECRET_KEY") as? String ?? ""
+        apiKey = UserDefaults.standard.string(forKey: "API_KEY") ?? ""
     }
     
     func sendRequest(prompt: String, maxTokens: Int) {
