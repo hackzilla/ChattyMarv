@@ -9,6 +9,7 @@ struct iOSContentView: View {
     @State private var consoleText: String = "Session started \(formattedDate())\n\n"
 
     @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.colorScheme) var colorScheme
 
     var onResponseReceived: ((String) -> Void)?
     var onRecognisedText: ((String) -> Void)?
@@ -87,14 +88,48 @@ struct iOSContentView: View {
      
      var buttonView: some View {
          VStack(spacing: 10) {
-             Button("Ask Question") {
-                 recorder.startRecording()
+             if !speechManager.isSpeaking {
+                 Button(action: {
+                     recorder.startRecording()
+                 }) {
+                     Text("Ask Question")
+                         .foregroundColor(colorScheme == .light ? Color.white : Color.black)
+                         .padding()
+                         .background(
+                             (recorder.hasMicrophoneAccess && recorder.isSpeechRecognizerAvailable) ?
+                             Color.primary :
+                             Color.gray.opacity(0.6)
+                         )
+                         .overlay(
+                             RoundedRectangle(cornerRadius: 8)
+                                 .stroke(colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), lineWidth: 1)
+                         )
+                         .cornerRadius(10)
+                 }
+                 .contentShape(Rectangle())
+                 .disabled(!recorder.hasMicrophoneAccess || !recorder.isSpeechRecognizerAvailable)
+
+             } else {
+                 Button(action: {
+                     speechManager.stopSpeaking()
+                 }) {
+                     Text("Stop speaking")
+                         .foregroundColor(colorScheme == .light ? Color.white : Color.black)
+                         .padding()
+                         .background(
+                             speechManager.isSpeaking ?
+                             Color.secondary :
+                             Color.gray.opacity(0.6)
+                         )
+                         .overlay(
+                             RoundedRectangle(cornerRadius: 8)
+                                 .stroke(colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), lineWidth: 1)
+                         )
+                         .cornerRadius(10)
+                 }
+                 .contentShape(Rectangle())
+                 .disabled(!speechManager.isSpeaking)
              }
-             .disabled(!recorder.hasMicrophoneAccess || !recorder.isSpeechRecognizerAvailable)
-             .padding()
-             .background(Color.blue)
-             .foregroundColor(.white)
-             .cornerRadius(10)
          }
      }
  }

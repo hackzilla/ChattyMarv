@@ -20,7 +20,7 @@ struct ConsoleView: View {
                         Text(consoleText)
                             .padding()
                     }
-                    .frame(width: geometry.size.width)
+                    .frame(width: geometry.size.width, alignment: .leading)
                     .background(Color.black.opacity(0.9))
                     .foregroundColor(.white)
                     .cornerRadius(15, corners: [.topLeft, .topRight])

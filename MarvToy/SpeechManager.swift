@@ -10,6 +10,8 @@ import AVFAudio
 import UIKit
 
 class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
+    @Published var isSpeaking: Bool = false
+
     var onResponseReceived: ((String) -> Void)?
 
     private let speechSynthesizer = AVSpeechSynthesizer()
@@ -42,6 +44,11 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
         }
     }
     
+    func stopSpeaking() {
+        // Stops speech at the next word boundary, or immediately if you prefer.
+        self.speechSynthesizer.stopSpeaking(at: .word)
+    }
+
     func chooseSpeechVoices() -> [AVSpeechSynthesisVoice?] {
         // List all available voices in en-US language
         let voices = AVSpeechSynthesisVoice.speechVoices()
@@ -71,8 +78,15 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     {
         print("Alert: \(text)")
     }
-    
+
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
+       // Speech started
+       isSpeaking = true
+   }
+
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        isSpeaking = false
+
         do {
             try self.audioSession.setActive(false, options: .notifyOthersOnDeactivation)
         } catch {
