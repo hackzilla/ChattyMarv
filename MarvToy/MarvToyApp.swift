@@ -11,11 +11,7 @@ import SwiftUI
 struct MarvToyApp: App {
     var body: some Scene {
         WindowGroup {
-            #if os(macOS)
-                MacContentView()
-            #else
-                iOSContentView()
-            #endif
+            APIKeyCheckView()
         }
     }
 }
