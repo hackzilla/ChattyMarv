@@ -88,28 +88,34 @@ struct iOSContentView: View {
      
      var buttonView: some View {
          VStack(spacing: 10) {
-             if !speechManager.isSpeaking {
+             if !speechManager.isSpeaking &&
+                    !recorder.isRecording {
                  Button(action: {
                      recorder.startRecording()
-                 }) {
+                 })
+                 {
                      Text("Ask Question")
                          .foregroundColor(colorScheme == .light ? Color.white : Color.black)
                          .padding()
                          .background(
-                             (recorder.hasMicrophoneAccess && recorder.isSpeechRecognizerAvailable) ?
-                             Color.primary :
-                             Color.gray.opacity(0.6)
+                            (recorder.hasMicrophoneAccess && recorder.isSpeechRecognizerAvailable) ?
+                            Color.primary :
+                                Color.gray.opacity(0.6)
                          )
                          .overlay(
-                             RoundedRectangle(cornerRadius: 8)
-                                 .stroke(colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), lineWidth: 1)
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), lineWidth: 1)
                          )
                          .cornerRadius(10)
                  }
                  .contentShape(Rectangle())
-                 .disabled(!recorder.hasMicrophoneAccess || !recorder.isSpeechRecognizerAvailable)
-
-             } else {
+                 .disabled(!recorder.hasMicrophoneAccess ||
+                           !recorder.isSpeechRecognizerAvailable
+                 )
+                 
+             } else if (recorder.isRecording) {
+                 Text("Speak your query")
+             } else if (speechManager.isSpeaking) {
                  Button(action: {
                      speechManager.stopSpeaking()
                  }) {
