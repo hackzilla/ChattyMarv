@@ -16,7 +16,7 @@ class APIKeyViewModel: ObservableObject {
         cancellable = UserDefaults.standard.publisher(for: \.API_KEY)
             .sink(receiveValue: { [weak self] newValue in
                 self?.apiKey = newValue
-                print("ApiKey: \(newValue ?? "empty")")
+//                print("ApiKey: \(newValue ?? "empty")")
             })
     }
 }

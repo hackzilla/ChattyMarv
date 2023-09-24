@@ -24,6 +24,8 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     }
     
     func speakText(text: String) -> Void {
+        print("Speak text: \(text)")
+
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
         utterance.rate = 0.52
@@ -46,7 +48,8 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     
     func stopSpeaking() {
         // Stops speech at the next word boundary, or immediately if you prefer.
-        self.speechSynthesizer.stopSpeaking(at: .word)
+        print("Stop speaking")
+      self.speechSynthesizer.stopSpeaking(at: .word)
     }
 
     func chooseSpeechVoices() -> [AVSpeechSynthesisVoice?] {
@@ -82,10 +85,12 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
        // Speech started
        isSpeaking = true
-   }
+        print("Start speaking")
+  }
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         isSpeaking = false
+        print("Did finish speaking")
 
         do {
             try self.audioSession.setActive(false, options: .notifyOthersOnDeactivation)

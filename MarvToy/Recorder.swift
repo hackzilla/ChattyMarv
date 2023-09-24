@@ -46,6 +46,7 @@ class Recorder: ObservableObject {
             return
         }
 
+        print("Start recording")
         do {
             try self.audioSession.setCategory(.playAndRecord, mode: .default, options: [
                 .duckOthers,
@@ -58,6 +59,8 @@ class Recorder: ObservableObject {
             print("Failed to set audio session category: \(error)")
         }
         
+        print("Start recording - reset")
+        
         // Reset the audio engine and the recognition task
         audioEngine.stop()
         recognitionTask?.cancel()
@@ -69,9 +72,19 @@ class Recorder: ObservableObject {
         guard let recognitionRequest = self.recognitionRequest else {
             fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
         }
-        recognitionRequest.shouldReportPartialResults = true
+        recognitionRequest.shouldReportPartialResults = false
 
+        if speechRecognizer?.supportsOnDeviceRecognition == true {
+            // Set requiresOnDeviceRecognition to true to enforce on-device recognition
+            recognitionRequest.requiresOnDeviceRecognition = true
+        } else {
+            // Handle the case where on-device recognition is not supported
+            print("On-device recognition not supported for the current language or device configuration.")
+        }
+        
         // Install the tap on the audio engine's input node
+        print(" Install the tap on the audio engine's input node")
+
         let recordingFormat = self.audioEngine.inputNode.outputFormat(forBus: 0)
         self.audioEngine.inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
             self.recognitionRequest?.append(buffer)
@@ -86,18 +99,15 @@ class Recorder: ObservableObject {
 
         // Start the recognition task
         self.recognitionTask = self.speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
-            var isFinal = false
-            
             if let result = result {
-                self.onRecognisedText?(result.bestTranscription.formattedString)
-                isFinal = result.isFinal
-
-//                if (self.recognizedText != "" && isFinal) {
-//                    self.openAIManager.sendRequest(prompt: self.recognizedText, maxTokens: 50)
-//                }
-            }
-            
-            if error != nil || isFinal {
+                if result.isFinal {
+                    self.onRecognisedText?(result.bestTranscription.formattedString)
+                    print("Final recognition: \(result.bestTranscription.formattedString)")
+                    self.stopRecording()
+                }
+            } else if let error = error {
+                // Handle any errors here
+                print("Error during recognition: \(error.localizedDescription)")
                 self.stopRecording()
             }
         })
@@ -107,6 +117,8 @@ class Recorder: ObservableObject {
     }
 
     func stopRecording() {
+        print("Stop recording")
+
         audioEngine.stop()
         audioEngine.inputNode.removeTap(onBus: 0)
         recognitionRequest?.endAudio()
@@ -118,9 +130,5 @@ class Recorder: ObservableObject {
         self.recognitionRequest = nil
         self.recognitionTask = nil
         self.isRecording = false
-
-//        if (self.recognizedText != "") {
-//            self.openAIManager.sendRequest(prompt: self.recognizedText, maxTokens: 50)
-//        }
     }
 }
