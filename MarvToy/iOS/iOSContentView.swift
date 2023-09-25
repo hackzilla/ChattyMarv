@@ -14,19 +14,8 @@ struct iOSContentView: View {
     var onResponseReceived: ((String) -> Void)?
     var onRecognisedText: ((String) -> Void)?
 
-    init() {
-        self.recorder.onRecognisedText = { [self] text in
-            DispatchQueue.main.async {
-                self.consoleText += "User: \(text)\n"
-            }
-        }
-        
-        self.openAIRequest.onResponseReceived = { [self] text in
-            DispatchQueue.main.async {
-                self.consoleText += "Assistant: \(text)\n"
-                speechManager.speakText(text: text)
-            }
-        }
+    @MainActor func addConsoleText(text: String) {
+        consoleText.append("\(text)\n")
     }
 
     func sendRequest(prompt: String, maxTokens: Int) {
@@ -91,6 +80,20 @@ struct iOSContentView: View {
                 }
             }
             .edgesIgnoringSafeArea(.all)
+        }
+        .onAppear {
+            self.recorder.onRecognisedText = { [self] text in
+                DispatchQueue.main.async {
+                    addConsoleText(text: "User: \(text)")
+                }
+            }
+            
+            self.openAIRequest.onResponseReceived = { [self] text in
+                DispatchQueue.main.async {
+                    addConsoleText(text: "Assistant: \(text)")
+                    speechManager.speakText(text: text)
+                }
+            }
         }
      }
  }
