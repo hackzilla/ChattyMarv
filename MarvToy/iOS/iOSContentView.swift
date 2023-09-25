@@ -1,5 +1,4 @@
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct iOSContentView: View {
     @ObservedObject private var recorder = Recorder()
@@ -38,7 +37,7 @@ struct iOSContentView: View {
         GeometryReader { geometry in
             ZStack {
                 // Main Content
-                VStack {
+                VStack(spacing: 0) {
                     if verticalSizeClass == .compact { // Landscape
                         HStack {
                             Image("bot")
@@ -47,19 +46,27 @@ struct iOSContentView: View {
                                 .frame(width: geometry.size.width * 0.5)
                             
                             VStack {
-                                buttonView
+                                ButtonView(recorder: recorder, speechManager: speechManager)
                             }
                         }
                     } else { // Portrait
-                        VStack {
-                            Image("bot")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: geometry.size.width)
-
-                            buttonView
-                        }
-                    }
+                       VStack {
+                           Spacer()
+                           Image("bot")
+                               .resizable()
+                               .aspectRatio(contentMode: .fit)
+                               .frame(width: geometry.size.width)
+                           Spacer()
+                       }
+                       .frame(height: geometry.size.height * 0.5)
+                       
+                       VStack {
+                           Spacer()
+                           ButtonView(recorder: recorder, speechManager: speechManager)
+                           Spacer()
+                       }
+                       .frame(height: geometry.size.height * 0.5)
+                   }
                 }
                 .zIndex(0)
                 
@@ -75,7 +82,7 @@ struct iOSContentView: View {
                 }
                 .frame(width: geometry.size.width)
                 .zIndex(2)
-                
+
                 // Console View
                 if isConsoleVisible {
                     ConsoleView(consoleText: $consoleText)
@@ -85,70 +92,6 @@ struct iOSContentView: View {
             }
             .edgesIgnoringSafeArea(.all)
         }
-     }
-     
-     var buttonView: some View {
-         GeometryReader { geometry in
-             VStack(spacing: 10) {
-                 if !speechManager.isSpeaking &&
-                        !recorder.isRecording {
-                     Button(action: {
-                         recorder.startRecording()
-                     })
-                     {
-                         Text("Ask Question")
-                             .foregroundColor(colorScheme == .light ? Color.white : Color.black)
-                             .padding()
-                             .background(
-                                (recorder.hasMicrophoneAccess && recorder.isSpeechRecognizerAvailable) ?
-                                Color.primary :
-                                    Color.gray.opacity(0.6)
-                             )
-                             .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), lineWidth: 1)
-                             )
-                             .cornerRadius(10)
-                     }
-                     .contentShape(Rectangle())
-                     .disabled(!recorder.hasMicrophoneAccess ||
-                               !recorder.isSpeechRecognizerAvailable
-                     )
-                     
-                 } else if (recorder.isRecording) {
-                     if let url = Bundle.main.url(forResource: "load-142", withExtension: "gif"),
-                        let data = try? Data(contentsOf: url) {
-                         AnimatedImage(data: data)
-                             .resizable()
-                             .indicator(Indicator.progress)
-                             .frame(width: geometry.size.width * 0.5)
-                         
-                     } else {
-                         Text("Failed to load image.")
-                     }
-                 } else if (speechManager.isSpeaking) {
-                     Button(action: {
-                         speechManager.stopSpeaking()
-                     }) {
-                         Text("Stop speaking")
-                             .foregroundColor(colorScheme == .light ? Color.white : Color.black)
-                             .padding()
-                             .background(
-                                speechManager.isSpeaking ?
-                                Color.secondary :
-                                    Color.gray.opacity(0.6)
-                             )
-                             .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), lineWidth: 1)
-                             )
-                             .cornerRadius(10)
-                     }
-                     .contentShape(Rectangle())
-                     .disabled(!speechManager.isSpeaking)
-                 }
-             }
-         }
      }
  }
 

@@ -14,6 +14,7 @@
 		D007BD942AB767F20005DA78 /* APIKeyCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D007BD932AB767F20005DA78 /* APIKeyCheckView.swift */; };
 		D062B3072AC04582008CC411 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D062B3062AC04582008CC411 /* Speech.framework */; };
 		D062B3092AC045DB008CC411 /* AVFAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D062B3082AC045DB008CC411 /* AVFAudio.framework */; };
+		D062B30B2AC1615A008CC411 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D062B30A2AC1615A008CC411 /* ButtonView.swift */; };
 		D06C401F2AA47A8600FCD274 /* MarvToyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C401E2AA47A8600FCD274 /* MarvToyApp.swift */; };
 		D06C40232AA47A8700FCD274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D06C40222AA47A8700FCD274 /* Assets.xcassets */; };
 		D06C40272AA47A8700FCD274 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D06C40262AA47A8700FCD274 /* Preview Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		D007BD932AB767F20005DA78 /* APIKeyCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyCheckView.swift; sourceTree = "<group>"; };
 		D062B3062AC04582008CC411 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/Speech.framework; sourceTree = DEVELOPER_DIR; };
 		D062B3082AC045DB008CC411 /* AVFAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFAudio.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/AVFAudio.framework; sourceTree = DEVELOPER_DIR; };
+		D062B30A2AC1615A008CC411 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		D06C401B2AA47A8600FCD274 /* MarvToy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvToy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06C401E2AA47A8600FCD274 /* MarvToyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvToyApp.swift; sourceTree = "<group>"; };
 		D06C40202AA47A8600FCD274 /* MacOSContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				D0DC7D782AA4C5FF003DEFB8 /* SpeechManager.swift */,
 				D0DC7D7A2AA4F352003DEFB8 /* RecordButton.swift */,
 				D007BD832AB5BC6E0005DA78 /* ConsoleView.swift */,
+				D062B30A2AC1615A008CC411 /* ButtonView.swift */,
 				D007BD852AB61B650005DA78 /* Recorder.swift */,
 				D007BD912AB767850005DA78 /* RedirectToSettingsView.swift */,
 				D007BD932AB767F20005DA78 /* APIKeyCheckView.swift */,
@@ -219,6 +222,7 @@
 				D0DC7D792AA4C5FF003DEFB8 /* SpeechManager.swift in Sources */,
 				D0DC7D722AA49496003DEFB8 /* iOSContentView.swift in Sources */,
 				D007BD842AB5BC6E0005DA78 /* ConsoleView.swift in Sources */,
+				D062B30B2AC1615A008CC411 /* ButtonView.swift in Sources */,
 				D06C401F2AA47A8600FCD274 /* MarvToyApp.swift in Sources */,
 				D0DC7D772AA4C2A4003DEFB8 /* OpenAIRequest.swift in Sources */,
 				D007BD942AB767F20005DA78 /* APIKeyCheckView.swift in Sources */,
