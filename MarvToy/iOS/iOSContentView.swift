@@ -85,6 +85,7 @@ struct iOSContentView: View {
             self.recorder.onRecognisedText = { [self] text in
                 DispatchQueue.main.async {
                     addConsoleText(text: "User: \(text)")
+                    sendRequest(prompt: text, maxTokens: 50)
                 }
             }
             
