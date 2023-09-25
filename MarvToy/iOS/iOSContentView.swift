@@ -47,14 +47,14 @@ struct iOSContentView: View {
                                .frame(width: geometry.size.width)
                            Spacer()
                        }
-                       .frame(height: geometry.size.height * 0.5)
+                       .frame(height: geometry.size.height * 0.65)
                        
                        VStack {
                            Spacer()
                            ButtonView(recorder: recorder, speechManager: speechManager)
                            Spacer()
                        }
-                       .frame(height: geometry.size.height * 0.5)
+                       .frame(height: geometry.size.height * 0.35)
                    }
                 }
                 .zIndex(0)
