@@ -15,6 +15,7 @@ class Recorder: ObservableObject {
     @Published var hasMicrophoneAccess: Bool = false
     @Published var alert: Alert?
     
+    private var silenceTimer: Timer?
     private var speechRecognizer = SFSpeechRecognizer()
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
@@ -86,7 +87,7 @@ class Recorder: ObservableObject {
         print(" Install the tap on the audio engine's input node")
 
         let recordingFormat = self.audioEngine.inputNode.outputFormat(forBus: 0)
-        self.audioEngine.inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
+        self.audioEngine.inputNode.installTap(onBus: 0, bufferSize: 4096, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
             self.recognitionRequest?.append(buffer)
         }
 
@@ -100,6 +101,9 @@ class Recorder: ObservableObject {
         // Start the recognition task
         self.recognitionTask = self.speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
             if let result = result {
+                self.silenceTimer?.invalidate()
+                self.silenceTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.handleSilence), userInfo: nil, repeats: false)
+
                 if result.isFinal {
                     self.onRecognisedText?(result.bestTranscription.formattedString)
                     print("Final recognition: \(result.bestTranscription.formattedString)")
@@ -114,11 +118,23 @@ class Recorder: ObservableObject {
 
         // Change the UI state
         self.isRecording = true
+        self.silenceTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.handleSilence), userInfo: nil, repeats: false)
     }
 
+    @objc func handleSilence() {
+        print("Silence detected. Stopping recording.")
+        self.stopRecording()
+    }
+    
     func stopRecording() {
         print("Stop recording")
+        self.silenceTimer?.invalidate()
+        self.silenceTimer = nil
 
+        if !self.isRecording {
+            return
+        }
+        
         audioEngine.stop()
         audioEngine.inputNode.removeTap(onBus: 0)
         recognitionRequest?.endAudio()
