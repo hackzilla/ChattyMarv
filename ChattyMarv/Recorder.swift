@@ -1,6 +1,6 @@
 //
 //  Recorder.swift
-//  MarvToy
+//  ChattyMarv
 //
 //  Created by Daniel Platt on 16/09/2023.
 //
@@ -55,7 +55,12 @@ class Recorder: ObservableObject {
                 .allowBluetoothA2DP,
             ])
             try self.audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-            try self.audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
+
+            if (UserDefaults.standard.bool(forKey: "USE_SPEAKER")) {
+                try self.audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
+            } else {
+                try self.audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.none)
+            }
         } catch {
             print("Failed to set audio session category: \(error)")
         }

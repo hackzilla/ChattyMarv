@@ -1,6 +1,6 @@
 //
 //  OpenAIManager.swift
-//  MarvToy
+//  ChattyMarv
 //
 //  Created by Daniel Platt on 03/09/2023.
 //
@@ -38,8 +38,13 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
                 .allowBluetoothA2DP
             ])
             try self.audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-            try self.audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
             
+            if (UserDefaults.standard.bool(forKey: "USE_SPEAKER")) {
+                try self.audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
+            } else {
+                try self.audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.none)
+            }
+
             self.speechSynthesizer.speak(utterance);
         } catch let error {
             print("OpenAIManager: Error setting up AVAudioSession: \(error.localizedDescription)")

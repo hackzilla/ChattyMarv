@@ -1,6 +1,6 @@
 //
 //  RedirectToSettingsView.swift
-//  MarvToy
+//  ChattyMarv
 //
 //  Created by Daniel Platt on 17/09/2023.
 //
