@@ -1,18 +1,22 @@
 import SwiftUI
 
-struct iOSContentView: View {
+struct ContentView: View {
     @ObservedObject private var recorder = Recorder()
     @ObservedObject private var speechManager = SpeechManager()
     @ObservedObject private var openAIRequest = OpenAIRequest()
 
     @State private var isConsoleVisible: Bool = false
     @State private var consoleText: String = "Session started \(formattedDate())\n\n"
+    @State private var text: String = ""
+    @State private var isUserSpeaking = false
 
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.colorScheme) var colorScheme
 
     var onResponseReceived: ((String) -> Void)?
     var onRecognisedText: ((String) -> Void)?
+    var onRecognisedSilence: ((Int) -> Void)?
+    var onRecognisedSound: (() -> Void)?
 
     @MainActor func addConsoleText(text: String) {
         consoleText.append("\(text)\n")
@@ -35,7 +39,7 @@ struct iOSContentView: View {
                                 .frame(width: geometry.size.width * 0.5)
                             
                             VStack {
-                                ButtonView(recorder: recorder, speechManager: speechManager)
+                                ButtonView(recorder: recorder, speechManager: speechManager, isUserSpeaking: $isUserSpeaking)
                             }
                         }
                     } else { // Portrait
@@ -51,7 +55,7 @@ struct iOSContentView: View {
                        
                        VStack {
                            Spacer()
-                           ButtonView(recorder: recorder, speechManager: speechManager)
+                           ButtonView(recorder: recorder, speechManager: speechManager, isUserSpeaking: $isUserSpeaking)
                            Spacer()
                        }
                        .frame(height: geometry.size.height * 0.35)
@@ -84,24 +88,56 @@ struct iOSContentView: View {
         .onAppear {
             self.recorder.onRecognisedText = { [self] text in
                 DispatchQueue.main.async {
-                    addConsoleText(text: "User: \(text)")
-                    sendRequest(prompt: text, maxTokens: 50)
+                    self.text += text
                 }
             }
             
             self.openAIRequest.onResponseReceived = { [self] text in
+                if (text == "") {
+                    return
+                }
+                
                 DispatchQueue.main.async {
+                    print("handle: onResponseReceived")
+                    
                     addConsoleText(text: "Assistant: \(text)")
                     speechManager.speakText(text: text)
                 }
             }
-        }
-     }
- }
+            
+            self.recorder.onRecognisedSilence = { [self] seconds in
+                DispatchQueue.main.async {
+                    self.isUserSpeaking = false
 
-struct iOSContentView_Previews: PreviewProvider {
+                    if seconds > Constants.requestAfterSeconds && self.text != "" {
+                        self.recorder.pauseRecording()
+                        addConsoleText(text: "User: \(self.text)")
+                        sendRequest(prompt: self.text, maxTokens: Constants.maxTokens)
+                        self.text = ""
+                    }
+                }
+            }
+
+            self.recorder.onRecognisedSound = {
+                DispatchQueue.main.async {
+                    // display something
+                    self.isUserSpeaking = true
+                }
+            }
+
+            self.speechManager.onFinishSpeaking = {
+                DispatchQueue.main.async {
+                    self.recorder.resumeRecording()
+                    self.isUserSpeaking = true
+                }
+            }
+        }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        iOSContentView()
+        ContentView()
     }
 }
 

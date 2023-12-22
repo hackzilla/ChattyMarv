@@ -12,6 +12,12 @@
 		D007BD902AB75E520005DA78 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D007BD8F2AB75E520005DA78 /* Settings.bundle */; };
 		D007BD922AB767850005DA78 /* RedirectToSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D007BD912AB767850005DA78 /* RedirectToSettingsView.swift */; };
 		D007BD942AB767F20005DA78 /* APIKeyCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D007BD932AB767F20005DA78 /* APIKeyCheckView.swift */; };
+		D010DB792B344D3A00955DAE /* speaking_light.gif in Resources */ = {isa = PBXBuildFile; fileRef = D010DB752B344D3A00955DAE /* speaking_light.gif */; };
+		D010DB7A2B344D3A00955DAE /* silence_light.gif in Resources */ = {isa = PBXBuildFile; fileRef = D010DB762B344D3A00955DAE /* silence_light.gif */; };
+		D010DB7B2B344D3A00955DAE /* silence_dark.gif in Resources */ = {isa = PBXBuildFile; fileRef = D010DB772B344D3A00955DAE /* silence_dark.gif */; };
+		D010DB7C2B344D3A00955DAE /* speaking_dark.gif in Resources */ = {isa = PBXBuildFile; fileRef = D010DB782B344D3A00955DAE /* speaking_dark.gif */; };
+		D010DB7E2B34520300955DAE /* VisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010DB7D2B34520300955DAE /* VisualizerView.swift */; };
+		D010DB822B35842100955DAE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010DB812B35842100955DAE /* Constants.swift */; };
 		D062B3072AC04582008CC411 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D062B3062AC04582008CC411 /* Speech.framework */; };
 		D062B3092AC045DB008CC411 /* AVFAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D062B3082AC045DB008CC411 /* AVFAudio.framework */; };
 		D062B30B2AC1615A008CC411 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D062B30A2AC1615A008CC411 /* ButtonView.swift */; };
@@ -20,11 +26,13 @@
 		D06C40272AA47A8700FCD274 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D06C40262AA47A8700FCD274 /* Preview Assets.xcassets */; };
 		D07C2FD52ABF3B170085C2A0 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D07C2FD42ABF3B170085C2A0 /* SDWebImageSwiftUI */; };
 		D07C2FD72ABF41500085C2A0 /* load-142.gif in Resources */ = {isa = PBXBuildFile; fileRef = D07C2FD62ABF41500085C2A0 /* load-142.gif */; };
-		D0DC7D722AA49496003DEFB8 /* iOSContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C40322AA487F900FCD274 /* iOSContentView.swift */; };
-		D0DC7D752AA495F7003DEFB8 /* MacOSContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C40202AA47A8600FCD274 /* MacOSContentView.swift */; };
+		D0DC7D722AA49496003DEFB8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06C40322AA487F900FCD274 /* ContentView.swift */; };
 		D0DC7D772AA4C2A4003DEFB8 /* OpenAIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC7D762AA4C2A4003DEFB8 /* OpenAIRequest.swift */; };
 		D0DC7D792AA4C5FF003DEFB8 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC7D782AA4C5FF003DEFB8 /* SpeechManager.swift */; };
 		D0DC7D7B2AA4F352003DEFB8 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC7D7A2AA4F352003DEFB8 /* RecordButton.swift */; };
+		D0E6857C2B304A0700E7E8B0 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6857A2B304A0700E7E8B0 /* SpeechRecognizer.swift */; };
+		D0E6857D2B304A0700E7E8B0 /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6857B2B304A0700E7E8B0 /* ErrorWrapper.swift */; };
+		D0E6857F2B304A1500E7E8B0 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D0E6857E2B304A1500E7E8B0 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,22 +41,30 @@
 		D007BD8F2AB75E520005DA78 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		D007BD912AB767850005DA78 /* RedirectToSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectToSettingsView.swift; sourceTree = "<group>"; };
 		D007BD932AB767F20005DA78 /* APIKeyCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyCheckView.swift; sourceTree = "<group>"; };
+		D010DB752B344D3A00955DAE /* speaking_light.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = speaking_light.gif; sourceTree = "<group>"; };
+		D010DB762B344D3A00955DAE /* silence_light.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = silence_light.gif; sourceTree = "<group>"; };
+		D010DB772B344D3A00955DAE /* silence_dark.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = silence_dark.gif; sourceTree = "<group>"; };
+		D010DB782B344D3A00955DAE /* speaking_dark.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = speaking_dark.gif; sourceTree = "<group>"; };
+		D010DB7D2B34520300955DAE /* VisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerView.swift; sourceTree = "<group>"; };
+		D010DB812B35842100955DAE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D017D22B2AC6B148007CF9E3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D062B3062AC04582008CC411 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/Speech.framework; sourceTree = DEVELOPER_DIR; };
 		D062B3082AC045DB008CC411 /* AVFAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFAudio.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/AVFAudio.framework; sourceTree = DEVELOPER_DIR; };
 		D062B30A2AC1615A008CC411 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		D06C401B2AA47A8600FCD274 /* ChattyMarv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChattyMarv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06C401E2AA47A8600FCD274 /* ChattyMarvApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattyMarvApp.swift; sourceTree = "<group>"; };
-		D06C40202AA47A8600FCD274 /* MacOSContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSContentView.swift; sourceTree = "<group>"; };
 		D06C40222AA47A8700FCD274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D06C40242AA47A8700FCD274 /* ChattyMarv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChattyMarv.entitlements; sourceTree = "<group>"; };
 		D06C40262AA47A8700FCD274 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D06C402D2AA47BD200FCD274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		D06C40322AA487F900FCD274 /* iOSContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSContentView.swift; sourceTree = "<group>"; };
+		D06C40322AA487F900FCD274 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D07C2FD62ABF41500085C2A0 /* load-142.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "load-142.gif"; sourceTree = "<group>"; };
 		D0DC7D762AA4C2A4003DEFB8 /* OpenAIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRequest.swift; sourceTree = "<group>"; };
 		D0DC7D782AA4C5FF003DEFB8 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
 		D0DC7D7A2AA4F352003DEFB8 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		D0E6857A2B304A0700E7E8B0 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		D0E6857B2B304A0700E7E8B0 /* ErrorWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
+		D0E6857E2B304A1500E7E8B0 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +81,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D010DB6C2B344B7B00955DAE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D07C2FD62ABF41500085C2A0 /* load-142.gif */,
+				D010DB772B344D3A00955DAE /* silence_dark.gif */,
+				D010DB762B344D3A00955DAE /* silence_light.gif */,
+				D010DB782B344D3A00955DAE /* speaking_dark.gif */,
+				D010DB752B344D3A00955DAE /* speaking_light.gif */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		D062B3052AC04582008CC411 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,21 +123,24 @@
 		D06C401D2AA47A8600FCD274 /* ChattyMarv */ = {
 			isa = PBXGroup;
 			children = (
+				D010DB6C2B344B7B00955DAE /* Images */,
+				D0E6857E2B304A1500E7E8B0 /* LICENSE */,
+				D0E685792B3049F700E7E8B0 /* Modals */,
 				D06C402D2AA47BD200FCD274 /* Info.plist */,
 				D06C401E2AA47A8600FCD274 /* ChattyMarvApp.swift */,
 				D0DC7D762AA4C2A4003DEFB8 /* OpenAIRequest.swift */,
 				D0DC7D782AA4C5FF003DEFB8 /* SpeechManager.swift */,
 				D0DC7D7A2AA4F352003DEFB8 /* RecordButton.swift */,
 				D007BD832AB5BC6E0005DA78 /* ConsoleView.swift */,
+				D06C40322AA487F900FCD274 /* ContentView.swift */,
 				D062B30A2AC1615A008CC411 /* ButtonView.swift */,
 				D007BD852AB61B650005DA78 /* Recorder.swift */,
 				D007BD912AB767850005DA78 /* RedirectToSettingsView.swift */,
 				D007BD932AB767F20005DA78 /* APIKeyCheckView.swift */,
+				D010DB812B35842100955DAE /* Constants.swift */,
+				D010DB7D2B34520300955DAE /* VisualizerView.swift */,
 				D007BD8F2AB75E520005DA78 /* Settings.bundle */,
-				D06C40312AA4879A00FCD274 /* macOS */,
-				D06C40302AA4878C00FCD274 /* iOS */,
 				D06C40222AA47A8700FCD274 /* Assets.xcassets */,
-				D07C2FD62ABF41500085C2A0 /* load-142.gif */,
 				D06C40242AA47A8700FCD274 /* ChattyMarv.entitlements */,
 				D06C40252AA47A8700FCD274 /* Preview Content */,
 			);
@@ -124,20 +155,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		D06C40302AA4878C00FCD274 /* iOS */ = {
+		D0E685792B3049F700E7E8B0 /* Modals */ = {
 			isa = PBXGroup;
 			children = (
-				D06C40322AA487F900FCD274 /* iOSContentView.swift */,
+				D0E6857B2B304A0700E7E8B0 /* ErrorWrapper.swift */,
+				D0E6857A2B304A0700E7E8B0 /* SpeechRecognizer.swift */,
 			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		D06C40312AA4879A00FCD274 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				D06C40202AA47A8600FCD274 /* MacOSContentView.swift */,
-			);
-			path = macOS;
+			path = Modals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,10 +228,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D010DB7B2B344D3A00955DAE /* silence_dark.gif in Resources */,
+				D010DB7A2B344D3A00955DAE /* silence_light.gif in Resources */,
+				D010DB7C2B344D3A00955DAE /* speaking_dark.gif in Resources */,
 				D07C2FD72ABF41500085C2A0 /* load-142.gif in Resources */,
 				D06C40272AA47A8700FCD274 /* Preview Assets.xcassets in Resources */,
 				D007BD902AB75E520005DA78 /* Settings.bundle in Resources */,
 				D06C40232AA47A8700FCD274 /* Assets.xcassets in Resources */,
+				D0E6857F2B304A1500E7E8B0 /* LICENSE in Resources */,
+				D010DB792B344D3A00955DAE /* speaking_light.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,15 +247,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0DC7D752AA495F7003DEFB8 /* MacOSContentView.swift in Sources */,
+				D0E6857D2B304A0700E7E8B0 /* ErrorWrapper.swift in Sources */,
 				D0DC7D7B2AA4F352003DEFB8 /* RecordButton.swift in Sources */,
 				D007BD922AB767850005DA78 /* RedirectToSettingsView.swift in Sources */,
 				D0DC7D792AA4C5FF003DEFB8 /* SpeechManager.swift in Sources */,
-				D0DC7D722AA49496003DEFB8 /* iOSContentView.swift in Sources */,
+				D0DC7D722AA49496003DEFB8 /* ContentView.swift in Sources */,
+				D0E6857C2B304A0700E7E8B0 /* SpeechRecognizer.swift in Sources */,
 				D007BD842AB5BC6E0005DA78 /* ConsoleView.swift in Sources */,
 				D062B30B2AC1615A008CC411 /* ButtonView.swift in Sources */,
 				D06C401F2AA47A8600FCD274 /* ChattyMarvApp.swift in Sources */,
+				D010DB7E2B34520300955DAE /* VisualizerView.swift in Sources */,
 				D0DC7D772AA4C2A4003DEFB8 /* OpenAIRequest.swift in Sources */,
+				D010DB822B35842100955DAE /* Constants.swift in Sources */,
 				D007BD942AB767F20005DA78 /* APIKeyCheckView.swift in Sources */,
 				D007BD862AB61B650005DA78 /* Recorder.swift in Sources */,
 			);
@@ -366,6 +398,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChattyMarv/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We need Bluetooth access to connect to the device.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We need Bluetooth access to connect to the device.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone to transcribe your speech";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "We need access to speech recognition to convert your speech to text";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -408,6 +444,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChattyMarv/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We need Bluetooth access to connect to the device.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We need Bluetooth access to connect to the device.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone to transcribe your speech";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "We need access to speech recognition to convert your speech to text";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

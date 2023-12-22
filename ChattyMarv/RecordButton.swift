@@ -18,16 +18,12 @@ struct RecordButton: View {
     var body: some View {
         let drag = DragGesture(minimumDistance: 0)
             .onChanged { _ in
-//                print("onchanged")
                 if !self.isPressed {
-//                    print("onchanged - pressed")
-
                     self.isPressed = true
                     self.onChanged()
                 }
             }
             .onEnded { _ in
-//                print("onEnded")
                 self.isPressed = false
                 self.onEnded()
             }

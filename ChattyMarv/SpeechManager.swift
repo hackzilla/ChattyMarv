@@ -12,7 +12,7 @@ import UIKit
 class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     @Published var isSpeaking: Bool = false
 
-    var onResponseReceived: ((String) -> Void)?
+    var onFinishSpeaking: (() -> Void)?
 
     private let speechSynthesizer = AVSpeechSynthesizer()
     private let audioSession = AVAudioSession.sharedInstance()
@@ -27,9 +27,9 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
         print("Speak text: \(text)")
 
         let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-        utterance.rate = 0.52
-        utterance.volume = 1.0
+        utterance.voice = AVSpeechSynthesisVoice(language: Constants.speechVoice)
+        utterance.rate = Constants.speechRate
+        utterance.volume = Constants.speechVolume
         
         do {
             try self.audioSession.setCategory(.playAndRecord, mode: .default, options: [
@@ -37,7 +37,7 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
                 .allowBluetooth,
                 .allowBluetoothA2DP
             ])
-            try self.audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+//            try self.audioSession.setActive(true, options: .notifyOthersOnDeactivation)
             
             if (UserDefaults.standard.bool(forKey: "USE_SPEAKER")) {
                 try self.audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
@@ -54,7 +54,9 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     func stopSpeaking() {
         // Stops speech at the next word boundary, or immediately if you prefer.
         print("Stop speaking")
-      self.speechSynthesizer.stopSpeaking(at: .word)
+        if (self.isSpeaking) {
+            self.speechSynthesizer.stopSpeaking(at: .word)
+        }
     }
 
     func chooseSpeechVoices() -> [AVSpeechSynthesisVoice?] {
@@ -88,19 +90,20 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     }
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
-       // Speech started
-       isSpeaking = true
+        // Speech started
+        isSpeaking = true
         print("Start speaking")
-  }
+    }
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         isSpeaking = false
+        onFinishSpeaking?()
         print("Did finish speaking")
 
-        do {
-            try self.audioSession.setActive(false, options: .notifyOthersOnDeactivation)
-        } catch {
-            print("OpenAIManager: Error deactivating AVAudioSession: \(error.localizedDescription)")
-        }
+//        do {
+//            try self.audioSession.setActive(false, options: .notifyOthersOnDeactivation)
+//        } catch {
+//            print("OpenAIManager: Error deactivating AVAudioSession: \(error.localizedDescription)")
+//        }
     }
 }

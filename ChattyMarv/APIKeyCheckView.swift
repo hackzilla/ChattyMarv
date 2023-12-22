@@ -29,11 +29,7 @@ struct APIKeyCheckView: View {
             if viewModel.apiKey?.isEmpty ?? true {
                 RedirectToSettingsView()
             } else {
-            #if os(macOS)
-                MacContentView()
-            #else
-                iOSContentView()
-            #endif
+                ContentView()
             }
         }
     }

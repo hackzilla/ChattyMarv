@@ -13,8 +13,7 @@ struct ConsoleView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
-                Spacer() // This will push the console to the bottom half
-                
+                Spacer()
                 VStack {
                     ScrollView {
                         Text(consoleText)

@@ -11,32 +11,32 @@ import SDWebImageSwiftUI
 struct ButtonView: View {
     @ObservedObject var recorder: Recorder
     @ObservedObject var speechManager: SpeechManager
+    @Binding var isUserSpeaking: Bool
 
     @Environment(\.colorScheme) var colorScheme
 
+
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    buttons(for: geometry)
-                    Spacer()
-                }
-                Spacer()
+        VStack {
+            Spacer()
+            if (recorder.isRecording) {
+                // potentially pass false, when paused
+                VisualizerView(isUserSpeaking: self.$isUserSpeaking)
+                    .frame(maxWidth: .infinity)
             }
+            buttons()
+            Spacer()
         }
     }
-    
-    func buttons (for geometry: GeometryProxy) -> some View {
-        if !speechManager.isSpeaking &&
-            !recorder.isRecording {
+
+    func buttons () -> some View {
+        if !recorder.isRecording {
             return AnyView(
                 Button(action: {
                     recorder.startRecording()
                 })
                 {
-                    Text("Ask Question")
+                    Text("Start Listening")
                         .foregroundColor(colorScheme == .light ? Color.white : Color.black)
                         .padding()
                         .background(
@@ -51,37 +51,18 @@ struct ButtonView: View {
                         .cornerRadius(10)
                 }
                 .contentShape(Rectangle())
-                .disabled(!recorder.hasMicrophoneAccess ||
-                          !recorder.isSpeechRecognizerAvailable
+                .disabled(!recorder.hasMicrophoneAccess || !recorder.isSpeechRecognizerAvailable
                 )
             )
-        } else if (recorder.isRecording) {
-            if let url = Bundle.main.url(forResource: "load-142", withExtension: "gif"),
-               let data = try? Data(contentsOf: url) {
-                return AnyView(AnimatedImage(data: data)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-//                        .indicator(Indicator.progress)
-                        .frame(width: geometry.size.width * 0.4)
-                )
-            } else {
-                return AnyView(
-                    Text("Failed to load image.")
-                )
-            }
-        } else if (speechManager.isSpeaking) {
+        } else {
             return AnyView(
                 Button(action: {
-                    speechManager.stopSpeaking()
+                    recorder.stopRecording()
                 }) {
-                    Text("Stop speaking")
+                    Text("Stop Listening")
                         .foregroundColor(colorScheme == .light ? Color.white : Color.black)
                         .padding()
-                        .background(
-                            speechManager.isSpeaking ?
-                            Color.secondary :
-                                Color.gray.opacity(0.6)
-                        )
+                        .background(Color.primary)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), lineWidth: 1)
@@ -89,23 +70,23 @@ struct ButtonView: View {
                         .cornerRadius(10)
                 }
                 .contentShape(Rectangle())
-                .disabled(!speechManager.isSpeaking)
            )
-        } else {
-            return AnyView(EmptyView())
         }
     }
 }
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(recorder: previewIsRecording, speechManager: previewSpeechNotSpeaking)
-            .previewDisplayName("Recording - Not Speaking")
+        ButtonView(recorder: previewIsRecording, speechManager: previewSpeechSpeaking, isUserSpeaking: .constant(true))
+            .previewDisplayName("Recording - User Speaking")
         
-        ButtonView(recorder: previewIsNotRecording, speechManager: previewSpeechSpeaking)
+        ButtonView(recorder: previewIsRecording, speechManager: previewSpeechNotSpeaking, isUserSpeaking: .constant(false))
+            .previewDisplayName("Recording - User Not Speaking")
+        
+        ButtonView(recorder: previewIsNotRecording, speechManager: previewSpeechSpeaking, isUserSpeaking: .constant(false))
             .previewDisplayName("Not Recording - Speaking")
         
-        ButtonView(recorder: previewIsNotRecording, speechManager: previewSpeechNotSpeaking)
+        ButtonView(recorder: previewIsNotRecording, speechManager: previewSpeechNotSpeaking, isUserSpeaking: .constant(false))
             .previewDisplayName("Not Recording - Not Speaking")
     }
     
