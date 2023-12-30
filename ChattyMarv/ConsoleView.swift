@@ -17,9 +17,9 @@ struct ConsoleView: View {
                 VStack {
                     ScrollView {
                         Text(consoleText)
+                            .textSelection(.enabled)
                             .padding()
                     }
-                    .frame(width: geometry.size.width, alignment: .leading)
                     .background(Color.black.opacity(0.9))
                     .foregroundColor(.white)
                     .cornerRadius(15, corners: [.topLeft, .topRight])
