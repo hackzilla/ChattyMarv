@@ -22,7 +22,7 @@ ChattyMarv is an iOS application that provides an interactive chatting experienc
 ### Prerequisites
 
 - Xcode 15.0 or later.
-- iOS 16.0 or later.
+- iOS 17.0 or later.
 - OpenAI API token (without this, the app won't work).
   
 ### Steps
@@ -57,5 +57,6 @@ If you encounter any issues or need support, please open an issue on the reposit
 
 ## Author
 
-Daniel Platt - [YourUsername](https://github.com/hackzilla)
+Daniel Platt - [Github](https://github.com/hackzilla)
 
+If you find this project useful, consider [buying me a coffee](https://www.buymeacoffee.com/hackzilla).
