@@ -30,9 +30,6 @@
 		D0DC7D772AA4C2A4003DEFB8 /* OpenAIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC7D762AA4C2A4003DEFB8 /* OpenAIRequest.swift */; };
 		D0DC7D792AA4C5FF003DEFB8 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC7D782AA4C5FF003DEFB8 /* SpeechManager.swift */; };
 		D0DC7D7B2AA4F352003DEFB8 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC7D7A2AA4F352003DEFB8 /* RecordButton.swift */; };
-		D0E6857C2B304A0700E7E8B0 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6857A2B304A0700E7E8B0 /* SpeechRecognizer.swift */; };
-		D0E6857D2B304A0700E7E8B0 /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6857B2B304A0700E7E8B0 /* ErrorWrapper.swift */; };
-		D0E6857F2B304A1500E7E8B0 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D0E6857E2B304A1500E7E8B0 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,9 +59,6 @@
 		D0DC7D762AA4C2A4003DEFB8 /* OpenAIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRequest.swift; sourceTree = "<group>"; };
 		D0DC7D782AA4C5FF003DEFB8 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
 		D0DC7D7A2AA4F352003DEFB8 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
-		D0E6857A2B304A0700E7E8B0 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
-		D0E6857B2B304A0700E7E8B0 /* ErrorWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
-		D0E6857E2B304A1500E7E8B0 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				D010DB6C2B344B7B00955DAE /* Images */,
-				D0E6857E2B304A1500E7E8B0 /* LICENSE */,
-				D0E685792B3049F700E7E8B0 /* Modals */,
 				D06C402D2AA47BD200FCD274 /* Info.plist */,
 				D06C401E2AA47A8600FCD274 /* ChattyMarvApp.swift */,
 				D0DC7D762AA4C2A4003DEFB8 /* OpenAIRequest.swift */,
@@ -153,15 +145,6 @@
 				D06C40262AA47A8700FCD274 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		D0E685792B3049F700E7E8B0 /* Modals */ = {
-			isa = PBXGroup;
-			children = (
-				D0E6857B2B304A0700E7E8B0 /* ErrorWrapper.swift */,
-				D0E6857A2B304A0700E7E8B0 /* SpeechRecognizer.swift */,
-			);
-			path = Modals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +218,6 @@
 				D06C40272AA47A8700FCD274 /* Preview Assets.xcassets in Resources */,
 				D007BD902AB75E520005DA78 /* Settings.bundle in Resources */,
 				D06C40232AA47A8700FCD274 /* Assets.xcassets in Resources */,
-				D0E6857F2B304A1500E7E8B0 /* LICENSE in Resources */,
 				D010DB792B344D3A00955DAE /* speaking_light.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,12 +229,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0E6857D2B304A0700E7E8B0 /* ErrorWrapper.swift in Sources */,
 				D0DC7D7B2AA4F352003DEFB8 /* RecordButton.swift in Sources */,
 				D007BD922AB767850005DA78 /* RedirectToSettingsView.swift in Sources */,
 				D0DC7D792AA4C5FF003DEFB8 /* SpeechManager.swift in Sources */,
 				D0DC7D722AA49496003DEFB8 /* ContentView.swift in Sources */,
-				D0E6857C2B304A0700E7E8B0 /* SpeechRecognizer.swift in Sources */,
 				D007BD842AB5BC6E0005DA78 /* ConsoleView.swift in Sources */,
 				D062B30B2AC1615A008CC411 /* ButtonView.swift in Sources */,
 				D06C401F2AA47A8600FCD274 /* ChattyMarvApp.swift in Sources */,
